@@ -5,7 +5,7 @@ open api이다
 ## nodejs
 
 - next.js안에서 여러 method get요청을 통해 nodejs연습 대충 끝 socket만 열면 완전 끝
-- mysql monggodb연동등 여러가지 할거임
+- MySQL, MongoDB연동등 여러가지 할거임
 
 ## react-query
 
