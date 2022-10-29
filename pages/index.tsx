@@ -67,7 +67,10 @@ const Home: NextPage = () => {
 export default Home;
 const GetPost = () => {
   return useQuery(["posts"], async () => {
-    const { data } = await axios.get("https://api.hnpwa.com/v0/news/1.json");
+    console.log(process.env.NEXT_PUBLIC_API_NEWS_BASE_URL);
+    const { data } = await axios.get(
+      process.env.NEXT_PUBLIC_API_NEWS_BASE_URL + "/news/1.json"
+    );
 
     return data;
   });
