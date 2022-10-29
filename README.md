@@ -14,3 +14,7 @@ open api이다
 ## 공부
 
 - 여러가지 테스트하다가 생각나면 commit할 예정
+
+## mysql 연동
+
+- mysql2를 이용하여 mysql과 connect할 수 있게 됨.

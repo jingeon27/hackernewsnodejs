@@ -7,9 +7,19 @@ import {
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { GetStaticPaths } from "next";
+import React, { useState } from "react";
 import Link from "next/link";
 const Porst = ({ params }: { params: { id: string } }) => {
   const { status, data } = GetContents(params.id);
+  const [, setState] = useState({});
+  const test = () => {
+    axios
+      .get("http://localhost:3000/api/test")
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+    console.log("asdf");
+    setState({});
+  };
   return (
     <>
       {status === "loading" ? (
@@ -20,6 +30,10 @@ const Porst = ({ params }: { params: { id: string } }) => {
         <>
           <div>{data.title}</div>
           <Link href="/nice">이동하기^^</Link>
+          <div
+            style={{ height: "200px", width: "200px", backgroundColor: "red" }}
+            onClick={() => test()}
+          ></div>
         </>
       )}
     </>
@@ -27,7 +41,9 @@ const Porst = ({ params }: { params: { id: string } }) => {
 };
 export default Porst;
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await axios.get("https://api.hnpwa.com/v0/news/1.json");
+  const { data } = await axios.get(
+    process.env.NEXT_PUBLIC_API_NEWS_BASE_URL + "/news/1.json"
+  );
   const paths: {
     params: {
       id: string;
@@ -61,7 +77,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       };
     }
   );
-  console.log(paths);
   return {
     paths,
     fallback: false,
@@ -79,10 +94,9 @@ export const getStaticProps = async ({
   };
 };
 const GetContents = (path: string) => {
-  console.log(path);
   return useQuery(["contents", path], async () => {
     const { data } = await axios.get(
-      `https://api.hnpwa.com/v0/item/${path}.json`
+      process.env.NEXT_PUBLIC_API_NEWS_BASE_URL + `/item/${path}.json`
     );
     return data;
   });
