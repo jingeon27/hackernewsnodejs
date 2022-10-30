@@ -10,7 +10,7 @@ const user = "User_" + String(new Date().getTime()).substr(-3);
 
 // component
 const Index: React.FC = () => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   // connected flag
   const [connected, setConnected] = useState<boolean>(false);
@@ -60,8 +60,6 @@ const Index: React.FC = () => {
       // reset field if OK
       if (resp.ok) setMsg("");
     }
-
-    // focus after click
     inputRef?.current?.focus();
   };
 
