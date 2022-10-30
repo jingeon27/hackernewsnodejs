@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import db from "../lib/db";
-
+import { sql } from "../mysql/sql";
 const test = (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "GET") {
-    db.query("select * from customers", (err: any, result: any) => {
+    db.query(sql.customersList, (err: any, result: any) => {
       if (err) {
         console.log(err);
       } else {
@@ -12,7 +12,7 @@ const test = (req: NextApiRequest, res: NextApiResponse) => {
       }
     });
   } else {
-    res.status(500);
+    res.status(405);
   }
 };
 export default test;
