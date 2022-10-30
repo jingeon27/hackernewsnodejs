@@ -3,12 +3,6 @@ import { NextApiResponseServerIO } from "../../types/res";
 import { Server as ServerIO } from "socket.io";
 import { Server as NetServer } from "http";
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponseServerIO) => {
   if (!res.socket.server.io) {
