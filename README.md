@@ -18,3 +18,16 @@ open api이다
 ## mysql 연동
 
 - mysql2를 이용하여 mysql과 connect할 수 있게 됨.
+
+## mongoDB 연동
+
+- 귀찮아서 이건 나중에 함.
+
+## socket
+
+- axios와 호환이 안되는듯 해보임 next 공식 사이트에 예제가 없어서 socket 하는데 힘들엇음
+- 이제 socket과 db연결하면 끝일듯.
+
+## formdata
+
+- formdata 관련 요청을 처리하진 않았는데 주중에 학교에서 처리 연습해야겟음
