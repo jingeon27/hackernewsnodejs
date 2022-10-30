@@ -1,11 +1,6 @@
 export {};
 import mysql from "mysql2";
 let db: any;
-// MYSQL_HOST = "127.0.0.1";
-// MYSQL_PORT = 3306;
-// MYSQL_DATABASE = "dev";
-// MYSQL_USER = "dev01";
-// MYSQL_PASSWORD = "1234";
 try {
   db = mysql.createConnection({
     user: process.env.MYSQL_USER,
